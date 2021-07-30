@@ -3,7 +3,9 @@ import axios from 'axios';
 import './App.css';
 import Dashboard from './components/Dashboard';
 import Navbar from './components/Navbar';
+import Homepage from './components/Homepage';
 
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 function App() {
 	const [coins, setCoins] = useState([]);
 
@@ -19,10 +21,19 @@ function App() {
 	}, []);
 
 	return (
-		<div className="App">
+		<Router>
 			<Navbar />
-			<Dashboard coins={coins} />
-		</div>
+
+			<Switch>
+				<Route exact path="/homepage">
+					<Homepage />
+				</Route>
+				<Route exact path="/dashboard">
+					{' '}
+					<Dashboard coins={coins} />
+				</Route>
+			</Switch>
+		</Router>
 	);
 }
 
