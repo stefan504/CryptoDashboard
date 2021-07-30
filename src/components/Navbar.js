@@ -1,6 +1,7 @@
 import React from 'react';
 import '../App.css';
 import { Link } from 'react-router-dom';
+
 function Navbar() {
 	return (
 		<div className="flex justify-between mx-2 p-5">
@@ -19,10 +20,10 @@ function Navbar() {
 						{' '}
 						<li className="ml-4">Favourites</li>
 					</Link>
-					<a href="">
+					<Link to="/">
 						{' '}
 						<li className="ml-4">Log In</li>
-					</a>
+					</Link>
 				</ul>
 			</div>
 		</div>

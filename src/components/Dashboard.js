@@ -1,12 +1,23 @@
 import React from 'react';
 import '../App.css';
-
+import axios from 'axios';
 function Dashboard({ coins }) {
+	const getCoinData = (curr) => {
+		axios
+			.get(
+				`https://api.coingecko.com/api/v3/coins/${curr.id}/market_chart?vs_currency=usd&days=10&interval=daily`
+			)
+			.then((res) => {
+				console.log(res);
+			});
+	};
+
 	return (
 		<div className="grid grid-cols-6">
 			{coins.map((coin) => {
 				return (
 					<div
+						onClick={() => getCoinData(coin)}
 						className="shadow-md hover-col coin-container flex cursor-pointer rounded-md p-5 m-2 bg-primary  flex-col justify-between   text-center"
 						key={coin.id}
 					>
