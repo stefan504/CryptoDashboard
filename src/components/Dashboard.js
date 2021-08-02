@@ -13,7 +13,7 @@ function Dashboard({ coins, addToFavs }) {
 	};
 
 	return (
-		<div className="grid grid-cols-5">
+		<div className="grid grid-cols-5 mx-12">
 			{coins.map((coin) => {
 				return (
 					<div
@@ -21,7 +21,7 @@ function Dashboard({ coins, addToFavs }) {
 						className="shadow-md hover-col coin-container flex cursor-pointer rounded-md p-5 m-2 bg-primary  flex-col justify-between   text-center"
 						key={coin.id}
 					>
-						<h1 onClick={() => addToFavs(coin)}>⭐</h1>
+						<button onClick={() => addToFavs(coin)}>favourites</button>
 						<div>
 							<h2>{coin.name}</h2>
 						</div>

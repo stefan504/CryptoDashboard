@@ -20,3 +20,7 @@ body {
 .hover-col:hover {
 	background-color: var(--hover-col);
 }
+
+.grid-template {
+	grid-template-columns: 33% 66%;
+}

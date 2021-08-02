@@ -5,6 +5,9 @@ import Dashboard from './components/Dashboard';
 import Navbar from './components/Navbar';
 import Homepage from './components/Homepage';
 import Profile from './components/Profile';
+import Footer from './components/Footer';
+
+import Charts from './components/Charts';
 import { auth, provider } from './firebase';
 
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
@@ -52,6 +55,7 @@ function App() {
 	}, []);
 
 	const addToFavs = (fav) => {
+		if (!loggedIn) return alert('you must be logged in to have favourites');
 		for (let i = 0; i < favourites.length; i++) {
 			if (favourites[i] === fav) {
 				return;
@@ -82,6 +86,7 @@ function App() {
 					<Profile favourites={favourites} currentUser={currentUser} />
 				</Route>
 			</Switch>
+			<Footer />
 		</Router>
 	);
 }
