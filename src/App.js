@@ -4,6 +4,7 @@ import './App.css';
 import Dashboard from './components/Dashboard';
 import Navbar from './components/Navbar';
 import Homepage from './components/Homepage';
+import Profile from './components/Profile';
 import { auth, provider } from './firebase';
 
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
@@ -18,7 +19,7 @@ function App() {
 			.then((res) => {
 				setCurrentUser(res);
 				setLoggedIn(true);
-				console.log(res.additionalUserInfo.profile.given_name);
+				console.log(res);
 			})
 			.catch((err) => {
 				setLoggedIn(false);
@@ -65,6 +66,9 @@ function App() {
 				<Route exact path="/dashboard">
 					{' '}
 					<Dashboard coins={coins} />
+				</Route>
+				<Route exact path="/profile">
+					<Profile currentUser={currentUser} />
 				</Route>
 			</Switch>
 		</Router>
