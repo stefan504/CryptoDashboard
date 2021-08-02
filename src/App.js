@@ -12,6 +12,7 @@ function App() {
 	const [coins, setCoins] = useState([]);
 	const [loggedIn, setLoggedIn] = useState(false);
 	const [currentUser, setCurrentUser] = useState([]);
+	const [favourites, setFavourites] = useState([]);
 
 	const handleLogIn = () => {
 		auth
@@ -50,6 +51,16 @@ function App() {
 			});
 	}, []);
 
+	const addToFavs = (fav) => {
+		for (let i = 0; i < favourites.length; i++) {
+			if (favourites[i] === fav) {
+				return;
+			}
+		}
+		setFavourites([...favourites, fav]);
+		console.log(favourites);
+	};
+
 	return (
 		<Router>
 			<Navbar
@@ -65,10 +76,10 @@ function App() {
 				</Route>
 				<Route exact path="/dashboard">
 					{' '}
-					<Dashboard coins={coins} />
+					<Dashboard addToFavs={addToFavs} coins={coins} />
 				</Route>
 				<Route exact path="/profile">
-					<Profile currentUser={currentUser} />
+					<Profile favourites={favourites} currentUser={currentUser} />
 				</Route>
 			</Switch>
 		</Router>

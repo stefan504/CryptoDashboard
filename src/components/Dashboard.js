@@ -1,7 +1,7 @@
 import React from 'react';
 import '../App.css';
 import axios from 'axios';
-function Dashboard({ coins }) {
+function Dashboard({ coins, addToFavs }) {
 	const getCoinData = (curr) => {
 		axios
 			.get(
@@ -13,7 +13,7 @@ function Dashboard({ coins }) {
 	};
 
 	return (
-		<div className="grid grid-cols-6">
+		<div className="grid grid-cols-5">
 			{coins.map((coin) => {
 				return (
 					<div
@@ -21,6 +21,7 @@ function Dashboard({ coins }) {
 						className="shadow-md hover-col coin-container flex cursor-pointer rounded-md p-5 m-2 bg-primary  flex-col justify-between   text-center"
 						key={coin.id}
 					>
+						<h1 onClick={() => addToFavs(coin)}>⭐</h1>
 						<div>
 							<h2>{coin.name}</h2>
 						</div>
