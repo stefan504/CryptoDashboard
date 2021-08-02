@@ -4,10 +4,39 @@ import './App.css';
 import Dashboard from './components/Dashboard';
 import Navbar from './components/Navbar';
 import Homepage from './components/Homepage';
+import { auth, provider } from './firebase';
 
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 function App() {
 	const [coins, setCoins] = useState([]);
+	const [loggedIn, setLoggedIn] = useState(false);
+	const [currentUser, setCurrentUser] = useState([]);
+
+	const handleLogIn = () => {
+		auth
+			.signInWithPopup(provider)
+			.then((res) => {
+				setCurrentUser(res);
+				setLoggedIn(true);
+				console.log(res.additionalUserInfo.profile.given_name);
+			})
+			.catch((err) => {
+				setLoggedIn(false);
+				console.log('Failed to sign in with google.');
+			});
+	};
+	const handleLogOut = () => {
+		auth
+			.signOut()
+			.then((res) => {
+				setCurrentUser(null);
+				setLoggedIn(false);
+			})
+			.catch((err) => {
+				setLoggedIn(false);
+				console.log('Failed to sign out.');
+			});
+	};
 
 	useEffect(() => {
 		axios
@@ -22,7 +51,12 @@ function App() {
 
 	return (
 		<Router>
-			<Navbar />
+			<Navbar
+				loggedIn={loggedIn}
+				currentUser={currentUser}
+				handleLogIn={handleLogIn}
+				handleLogOut={handleLogOut}
+			/>
 
 			<Switch>
 				<Route exact path="/homepage">
