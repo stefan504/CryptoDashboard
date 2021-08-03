@@ -16,6 +16,7 @@ function App() {
 	const [loggedIn, setLoggedIn] = useState(false);
 	const [currentUser, setCurrentUser] = useState([]);
 	const [favourites, setFavourites] = useState([]);
+	const [open, setOpen] = useState(false);
 
 	const handleLogIn = () => {
 		auth
@@ -50,19 +51,21 @@ function App() {
 			)
 			.then((res) => {
 				setCoins(res.data);
-				console.log(res.data);
 			});
 	}, []);
 
 	const addToFavs = (fav) => {
 		if (!loggedIn) return alert('you must be logged in to have favourites');
 		for (let i = 0; i < favourites.length; i++) {
-			if (favourites[i] === fav) {
+			if (favourites[i].id === fav.id) {
 				return;
 			}
 		}
+		setOpen(true);
+		setTimeout(() => {
+			setOpen(false);
+		}, 2000);
 		setFavourites([...favourites, fav]);
-		console.log(favourites);
 	};
 
 	return (
@@ -80,7 +83,7 @@ function App() {
 				</Route>
 				<Route exact path="/dashboard">
 					{' '}
-					<Dashboard addToFavs={addToFavs} coins={coins} />
+					<Dashboard open={open} addToFavs={addToFavs} coins={coins} />
 				</Route>
 				<Route exact path="/profile">
 					<Profile favourites={favourites} currentUser={currentUser} />
@@ -92,3 +95,6 @@ function App() {
 }
 
 export default App;
+// ADD BETTER STYLING TO GRAPHS AND ADD BETTER LOOKING BUTTON TO CARDS.
+// ADD ABILITY TO SWTICH FROM 7 DAY LOOK TO HOURLY TO MONTHLY
+// ADD SOME BETTER STYLING TO NAVBAR(GRADIENT OR SOMETHING)

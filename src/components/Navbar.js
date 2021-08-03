@@ -3,7 +3,7 @@ import '../App.css';
 import { Link } from 'react-router-dom';
 function Navbar({ loggedIn, handleLogOut, currentUser, handleLogIn }) {
 	return (
-		<div className="flex items-center justify-between mx-10 p-5">
+		<div className="flex items-center justify-between  p-5">
 			<div>CryptoPro</div>
 
 			<ul className="flex items-center  ">

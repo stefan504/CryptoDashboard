@@ -10,7 +10,6 @@ function Profile({ currentUser, favourites }) {
 				`https://api.coingecko.com/api/v3/coins/${coins}/market_chart?vs_currency=usd&days=7&interval=daily`
 			)
 			.then((res) => {
-				console.log(res);
 				setData({
 					labels: [
 						'Monday',
@@ -28,8 +27,13 @@ function Profile({ currentUser, favourites }) {
 							fill: false,
 							lineTension: 0.5,
 							backgroundColor: 'green',
-							borderColor: 'rgba(0,0,0,1)',
+							tickColor: 'green',
+							borderColor: 'rgba(255,255,255,1)',
 							borderWidth: 2,
+							gridLines: {
+								display: false,
+								color: '#FFFFFF',
+							},
 						},
 					],
 				});
@@ -48,7 +52,7 @@ function Profile({ currentUser, favourites }) {
 				{/* <h2 className="text-center">
 						Welcome, {currentUser.additionalUserInfo.profile.given_name}
 					</h2> */}
-				<div className="border-r-2 border-gray-500 px-2  grid grid-cols-2 content-center  ">
+				<div className="icons border-r-2 border-gray-500 px-2  grid grid-cols-2 content-start  ">
 					{favourites.map((coin) => {
 						return (
 							<div

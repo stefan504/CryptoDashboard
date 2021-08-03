@@ -23,4 +23,13 @@ body {
 
 .grid-template {
 	grid-template-columns: 33% 66%;
+	height: 90vh;
+}
+@media (max-width: 700px) {
+	.grid-template {
+		grid-template-columns: auto;
+	}
+	.icons {
+		grid-template-columns: repeat(5, minmax(0, 1fr));
+	}
 }
