@@ -78,7 +78,7 @@ function App() {
 			/>
 
 			<Switch>
-				<Route exact path="/homepage">
+				<Route exact path="/">
 					<Homepage />
 				</Route>
 				<Route exact path="/dashboard">
