@@ -15,24 +15,24 @@ function Navbar({ loggedIn, handleLogOut, currentUser, handleLogIn }) {
 			<ul className="flex items-center  ">
 				<Link to="/dashboard">
 					{' '}
-					<li className="ml-4">Dashboard</li>
+					<li className="ml-4 font-semibold text-white">Dashboard</li>
 				</Link>
 
 				{loggedIn ? (
 					<>
 						<div className="p-2">
 							<div className="dropdown inline-block relative">
-								<button className="bg-gray-300 text-gray-700 font-semibold py-1 px-2 rounded inline-flex items-center">
-									<span className="mr-1">
+								<button className="bg-gray-500 text-gray-100 font-semibold py-1 px-2 rounded inline-flex items-center">
+									<span className="mr-1 font-semibold">
 										Menu <i className="fas fa-caret-square-down"></i>
 									</span>
 								</button>
-								<ul className="dropdown-menu absolute hidden text-gray-700 pt-1">
+								<ul className="dropdown-menu absolute hidden text-gray-800 pt-1">
 									<Link
-										className="rounded-t bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap"
+										className="rounded-t bg-gray-500 hover:bg-gray-300 py-2 px-4 block whitespace-no-wrap"
 										to="/profile"
 									>
-										<li className="ml-4 w-11 ">
+										<li className="ml-4 w-11 font-semibold  text-white ">
 											{' '}
 											<img
 												className="rounded-xl rounded-full"
@@ -47,11 +47,14 @@ function Navbar({ loggedIn, handleLogOut, currentUser, handleLogIn }) {
 									</Link>
 
 									<Link
-										className="rounded-t bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap"
+										className="rounded-t bg-gray-500 hover:bg-gray-300 py-2 px-4 block whitespace-no-wrap"
 										to="/"
 									>
 										{' '}
-										<li onClick={handleLogOut} className="ml-4">
+										<li
+											onClick={handleLogOut}
+											className="ml-4 font-semibold  text-white"
+										>
 											Log out
 										</li>
 									</Link>
@@ -62,7 +65,7 @@ function Navbar({ loggedIn, handleLogOut, currentUser, handleLogIn }) {
 				) : (
 					<Link onClick={handleLogIn} to="/dashboard">
 						{' '}
-						<li className="ml-4">Log In</li>
+						<li className="ml-4  text-white font-semibold">Log In</li>
 					</Link>
 				)}
 			</ul>
