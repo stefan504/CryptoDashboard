@@ -7,7 +7,8 @@ function Footer() {
 				<div className="justify-center md:flex md:flex-wrap md:-mx-4 py-6 md:pb-12">
 					<div className="footer-info lg:w-1/3 md:px-4">
 						<h4 className="text-white text-2xl mb-4">
-							19K users are using FWR blocks and making their life easy.
+							19K users are using CPRO blockchain solutions and making their
+							life easy.
 						</h4>
 						<p className="text-gray-400">
 							We have carefully crafted the blocks to suit to everyone's need.

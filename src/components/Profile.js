@@ -48,31 +48,35 @@ function Profile({ currentUser, favourites }) {
 		return <h2 className="text-center">No active user</h2>;
 	} else {
 		return (
-			<div className="grid grid-template">
-				{/* <h2 className="text-center">
+			<>
+				<h2 className="text-yellow-400 ml-5">My coins</h2>
+				<div className="grid grid-template">
+					{/* <h2 className="text-center">
 						Welcome, {currentUser.additionalUserInfo.profile.given_name}
 					</h2> */}
-				<div className="icons border-r-2 border-gray-500 px-2  grid grid-cols-2 content-start  ">
-					{favourites.map((coin) => {
-						return (
-							<div
-								onClick={() => fetchChart(coin.id)}
-								className="border-r-2 border-purple-50 shadow-md hover-col coin-container flex cursor-pointer rounded-md p-5 m-2 bg-primary  flex-col justify-between   text-center"
-								key={coin.id}
-							>
-								<div>
-									<h2>{coin.name}</h2>
+
+					<div className="icons border-r-2 border-gray-500 px-2  grid grid-cols-2 content-start  ">
+						{favourites.map((coin) => {
+							return (
+								<div
+									onClick={() => fetchChart(coin.id)}
+									className="border-r-2 border-purple-50 shadow-md hover-col coin-container flex cursor-pointer rounded-md p-5 m-2 bg-primary  flex-col justify-between   text-center"
+									key={coin.id}
+								>
+									<div>
+										<h2>{coin.name}</h2>
+									</div>
+									<div>
+										<img src={coin.image} alt="" />
+									</div>
+									<h5>${coin.current_price.toFixed(2)}</h5>
 								</div>
-								<div>
-									<img src={coin.image} alt="" />
-								</div>
-								<h5>${coin.current_price.toFixed(2)}</h5>
-							</div>
-						);
-					})}
+							);
+						})}
+					</div>
+					<Charts data={data} favourites={favourites} />
 				</div>
-				<Charts data={data} favourites={favourites} />
-			</div>
+			</>
 		);
 	}
 }

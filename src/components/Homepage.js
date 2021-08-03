@@ -6,12 +6,12 @@ function Homepage() {
 		<div className="h-90 pt-6 flex justify-around content-center flex-column">
 			<div className="lg:pt-52 px-3">
 				<h2 className="text-5xl mb-2 text-white">Powerful crypto-tracker.</h2>
-				<h3 className="text-2xl mb-2 text-yellow-400">
+				<h3 className="text-2xl mb-6 text-yellow-400">
 					Investments and blockchain solutions.
 				</h3>
 				<Link
 					to="/dashboard"
-					className="bg-purple-500 hover:bg-purple-400 text-white font-bold py-2 px-4 border-b-4 border-purple-700 hover:border-purple-500 rounded mx-auto mb-1 w-1/2 w-max"
+					className="bg-purple-500 hover:bg-purple-400 text-white font-bold py-4 px-8 border-b-4 border-purple-700 hover:border-purple-500 rounded mx-auto mb-1 w-1/2 w-max mt-6"
 				>
 					Get started
 				</Link>
