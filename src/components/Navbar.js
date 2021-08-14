@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import logo from '../logo.png';
 function Navbar({ loggedIn, handleLogOut, currentUser, handleLogIn }) {
 	return (
-		<div className="flex items-center justify-between  p-5">
+		<div className="flex items-center justify-between  mx-12 pt-5">
 			<div className=" items-center">
 				<Link to="/">
 					{' '}

@@ -9,7 +9,6 @@ function Dashboard({ coins, addToFavs, open }) {
 			)
 			.then((res) => {});
 	};
-	console.log(open);
 
 	return (
 		<div className=" pt-6 grid lg:grid-cols-4 xl:grid-cols-5  md:grid-cols-3 md:mx-12 sm:grid-cols-2 sm:mx-auto">

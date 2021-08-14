@@ -7,7 +7,6 @@ import Homepage from './components/Homepage';
 import Profile from './components/Profile';
 import Footer from './components/Footer';
 
-import Charts from './components/Charts';
 import { auth, provider } from './firebase';
 
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
@@ -24,7 +23,6 @@ function App() {
 			.then((res) => {
 				setCurrentUser(res);
 				setLoggedIn(true);
-				console.log(res);
 			})
 			.catch((err) => {
 				setLoggedIn(false);
